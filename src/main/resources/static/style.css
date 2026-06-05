@@ -15,7 +15,8 @@ header {
     background-color: #ff9431;
     padding: 25px 40px;
     color: white;
-    border-radius: 18px;
+    border-radius: 16px;
+    margin: 20px;
 }
 
 .searchbox {
@@ -23,7 +24,7 @@ header {
     max-width: 100%;
     display: flex;
     background: white;
-    border-radius: 18px;
+    border-radius: 12px;
     overflow: hidden;
 }
 
@@ -46,4 +47,12 @@ header {
 
 .searchbox button:hover {
     background-color: #ffad61;
+}
+
+main {
+    background-color: #ff9431;
+    padding: 25px 40px;
+    color: white;
+    border-radius: 16px;
+    margin: 20px;
 }
