@@ -79,7 +79,6 @@ main {
     border-radius: 18px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .singleweather:hover {
