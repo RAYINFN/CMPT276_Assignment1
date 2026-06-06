@@ -1,3 +1,57 @@
+function displayCities(cities) {
+    weatherlist.innerHTML = "";
+
+    if (!cities.length) {
+        weatherlist.innerHTML = `<div class="messagerow">${"No results."}</div>`;
+        return;
+    }
+
+    cities.forEach(city => {
+        const row = document.createElement("div");
+        const location = getLocationText(city);
+        row.className = "singleweather";
+
+        row.innerHTML = `
+            <div class="weathersummary">
+                <div>
+                    <div class="cityname">${city.name}</div>
+                    <div class="citylocation">${location}</div>
+                </div>
+                <div>•</div>
+            </div>
+
+            <div class="weatherdetails">
+                <div class="weatheritem">
+                    <span class="weatherlabel">Temp</span>
+                    <span class="weathervalue">Loading...</span>
+                </div>
+                <div class="weatheritem">
+                    <span class="weatherlabel">Condition</span>
+                    <span class="weathervalue">Loading...</span>
+                </div>
+                <div class="weatheritem">
+                    <span class="weatherlabel">Humidity</span>
+                    <span class="weathervalue">Loading...</span>
+                </div>
+                <div class="weatheritem">
+                    <span class="weatherlabel">Wind Speed</span>
+                    <span class="weathervalue">Loading...</span>
+                </div>
+            </div>
+        `;
+
+        row.querySelector(".weathersummary").addEventListener("click", async () => {
+            row.classList.toggle("open");
+
+            if (row.classList.contains("open") && !row.dataset.loaded) {
+                await loadWeatherForCity(city, row.querySelector(".weatherdetails"), row);
+            }
+        });
+
+        weatherlist.appendChild(row);
+    });
+}
+
 async function searchCity(cityName, count = 100) {
     const url = new URL("https://geocoding-api.open-meteo.com/v1/search");
     url.searchParams.set("language", "en");
