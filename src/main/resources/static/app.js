@@ -109,7 +109,7 @@ function displayCities(cities) {
                 <div>•</div>
             </div>
 
-            <div class="weather_details">
+            <div class="weatherdetails">
                 <div class="weatheritem">
                     <span class="weatherlabel">Temp</span>
                     <span class="weathervalue">Loading...</span>
