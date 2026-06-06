@@ -60,10 +60,6 @@ function setErrorDetails(details, message) {
     });
 }
 
-function showMessage(message) {
-    weatherlist.innerHTML = `<div class="messagerow">${replaceHTML(message)}</div>`;
-}
-
 function getLocationText(city) {
     const parts = [];
 
@@ -82,15 +78,6 @@ function getLocationText(city) {
     return parts.join(", ");
 }
 
-function replaceHTML(text) {
-    return String(text || "")
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-}
-
 searchButton.addEventListener("click", searchingCity);
 
 searchInput.addEventListener("keydown", event => {
@@ -104,7 +91,7 @@ function displayCities(cities) {
     weatherlist.innerHTML = "";
 
     if (!cities.length) {
-        showMessage("No results.");
+        weatherlist.innerHTML = `<div class="messagerow">${"No results."}</div>`;
         return;
     }
 
@@ -116,8 +103,8 @@ function displayCities(cities) {
         row.innerHTML = `
             <div class="weathersummary">
                 <div>
-                    <div class="cityname">${replaceHTML(city.name)}</div>
-                    <div class="citylocation">${replaceHTML(location)}</div>
+                    <div class="cityname">${city.name}</div>
+                    <div class="citylocation">${location}</div>
                 </div>
                 <div>•</div>
             </div>
@@ -142,14 +129,11 @@ function displayCities(cities) {
             </div>
         `;
 
-        const summary = row.querySelector(".weathersummary");
-        const details = row.querySelector(".weatherdetails");
-
-        summary.addEventListener("click", async () => {
+        row.querySelector(".weathersummary").addEventListener("click", async () => {
             row.classList.toggle("open");
 
             if (row.classList.contains("open") && !row.dataset.loaded) {
-                await loadWeatherForCity(city, details, row);
+                await loadWeatherForCity(city, row.querySelector(".weatherdetails"), row);
             }
         });
 
