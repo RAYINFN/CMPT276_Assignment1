@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #ffeeee;
+    color: #3b1e1e;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #ffffff00;
+    padding: 25px 40px;
+    color: white;
+}
+
+header h1 {
+    margin-bottom: 18px;
+    font-size: 32px;
+}
+
+.searchbox {
+    width: 500px;
+    max-width: 100%;
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin:auto;
+}
+
+.searchbox input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 18px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.searchbox button {
+    padding: 14px 24px;
+    border: none;
+    background-color: #ff6969;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.searchbox button:hover {
+    background-color: #ffafaf;
+}
+
+.hint {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #dbeafe;
+}
+
+main {
+    width: 100%;
+    max-width: 585px;
+    margin: 35px auto;
+    padding: 0 40px;
+}
+
+.weatherlist {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin:auto;
+}
+
+.singleweather {
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    margin:auto;
+}
+
+.weathersummary {
+    width: 100%;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+}
+
+.cityname {
+    font-weight: bold;
+    color: #ff6969;
+    font-size: 18px;
+}
+
+.citylocation {
+    margin-top: 4px;
+    color: #5e5e5e;
+    font-size: 13px;
+}
+
+.singleweather.open .toggleicon {
+    transform: rotate(180deg);
+}
+
+.weatherdetails {
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 0 24px 22px;
+}
+
+.singleweather.open .weatherdetails {
+    display: grid;
+}
+
+.weatherlabel {
+    display: block;
+    margin-bottom: 6px;
+    color: #000000;
+    font-size: 13px;
+}
+
+.weathervalue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.messagerow {
+    padding: 20px 24px;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    color: #000000;
+}
