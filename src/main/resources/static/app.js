@@ -114,7 +114,7 @@ function displayCities(cities) {
         row.className = "singleweather";
 
         row.innerHTML = `
-            <div class="weather-summary">
+            <div class="weathersummary">
                 <div>
                     <div class="cityname">${replaceHTML(city.name)}</div>
                     <div class="citylocation">${replaceHTML(location)}</div>
@@ -122,28 +122,28 @@ function displayCities(cities) {
                 <div>•</div>
             </div>
 
-            <div class="weather-details">
-                <div class="weather-item">
-                    <span class="weather-label">Temp</span>
-                    <span class="weather-value">Loading...</span>
+            <div class="weatherdetails">
+                <div class="weatheritem">
+                    <span class="weatherlabel">Temp</span>
+                    <span class="weathervalue">Loading...</span>
                 </div>
-                <div class="weather-item">
-                    <span class="weather-label">Condition</span>
-                    <span class="weather-value">Loading...</span>
+                <div class="weatheritem">
+                    <span class="weatherlabel">Condition</span>
+                    <span class="weathervalue">Loading...</span>
                 </div>
-                <div class="weather-item">
-                    <span class="weather-label">Humidity</span>
-                    <span class="weather-value">Loading...</span>
+                <div class="weatheritem">
+                    <span class="weatherlabel">Humidity</span>
+                    <span class="weathervalue">Loading...</span>
                 </div>
-                <div class="weather-item">
-                    <span class="weather-label">Wind Speed</span>
-                    <span class="weather-value">Loading...</span>
+                <div class="weatheritem">
+                    <span class="weatherlabel">Wind Speed</span>
+                    <span class="weathervalue">Loading...</span>
                 </div>
             </div>
         `;
 
-        const summary = row.querySelector(".weather-summary");
-        const details = row.querySelector(".weather-details");
+        const summary = row.querySelector(".weathersummary");
+        const details = row.querySelector(".weatherdetails");
 
         summary.addEventListener("click", async () => {
             row.classList.toggle("open");
