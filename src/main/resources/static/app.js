@@ -43,3 +43,24 @@ async function searchingCity() {
     }
 }
 
+async function loadWeatherForCity(city, details, row) {
+    try {
+        let targetCity = city;
+
+        if (typeof targetCity.latitude !== "number" || typeof targetCity.longitude !== "number") {
+            targetCity = await searchCity(city.name, 1);
+
+            if (!targetCity) {
+                setErrorDetails(details, "N/A");
+                return;
+            }
+        }
+
+        const weather = await fetchWeather(targetCity);
+        updateDetails(details, weather);
+        row.dataset.loaded = "true";
+    } catch (error) {
+        console.error(error);
+        setErrorDetails(details, "Failed");
+    }
+}
