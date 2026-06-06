@@ -23,7 +23,7 @@ const weatherDescriptions = {
 };
 
 const defaultCanadianCities = [
-    "Vancouver", "Burnaby", "Richmond", "Surrey", "Coquitlam", "Delta", "Langley", "Abbotsford", "Victoria", "Nanaimo",
+    "Vancouver", "Burnaby", "Toronto", "Surrey", "Coquitlam", "Vancouver Island", "Langley", "Abbotsford", "Newfoundland", "Nanaimo",
 ];
 
 async function fetchWeather(city) {
@@ -61,7 +61,7 @@ function setErrorDetails(details, message) {
 }
 
 function showMessage(message) {
-    weatherList.innerHTML = `<div class="messagerow">${replaceHTML(message)}</div>`;
+    weatherlist.innerHTML = `<div class="messagerow">${replaceHTML(message)}</div>`;
 }
 
 function getLocationText(city) {
@@ -95,13 +95,13 @@ searchButton.addEventListener("click", searchingCity);
 
 searchInput.addEventListener("keydown", event => {
     if (event.key === "Enter") {
-        searchCity();
+        searchingCity();
     }
 });
 
 
 function displayCities(cities) {
-    weatherList.innerHTML = "";
+    weatherlist.innerHTML = "";
 
     if (!cities.length) {
         showMessage("No results.");
@@ -153,30 +153,8 @@ function displayCities(cities) {
             }
         });
 
-        weatherList.appendChild(row);
+        weatherlist.appendChild(row);
     });
-}
-
-async function loadWeatherForCity(city, details, row) {
-    try {
-        let targetCity = city;
-
-        if (typeof targetCity.latitude !== "number" || typeof targetCity.longitude !== "number") {
-            targetCity = await searchCity(city.name, 1);
-
-            if (!targetCity) {
-                setErrorDetails(details, "N/A");
-                return;
-            }
-        }
-
-        const weather = await fetchWeather(targetCity);
-        updateDetails(details, weather);
-        row.dataset.loaded = "true";
-    } catch (error) {
-        console.error(error);
-        setErrorDetails(details, "Failed");
-    }
 }
 
 displayCities(defaultCanadianCities.map(name => ({ name })));
