@@ -32,14 +32,14 @@ async function searchingCity() {
         return;
     }
 
-    showMessage("Searching...");
+    weatherlist.innerHTML = `<div class="messagerow">${"Searching..."}</div>`;
 
     try {
         const results = await searchCity(input, 100);
         displayCities(results);
     } catch (error) {
         console.error(error);
-        showMessage("Failed");
+        weatherlist.innerHTML = `<div class="messagerow">${"Failed"}</div>`;
     }
 }
 
