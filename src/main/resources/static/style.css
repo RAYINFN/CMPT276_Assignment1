@@ -6,13 +6,13 @@
 }
 
 body {
-    background: #eef5ff;
-    color: #1e293b;
+    background: #ffeeee;
+    color: #3b1e1e;
     min-height: 100vh;
 }
 
 header {
-    background-color: #2563eb;
+    background-color: #ffffff00;
     padding: 25px 40px;
     color: white;
 }
@@ -27,8 +27,9 @@ header h1 {
     max-width: 100%;
     display: flex;
     background: white;
-    border-radius: 30px;
+    border-radius: 10px;
     overflow: hidden;
+    margin:auto;
 }
 
 .searchbox input {
@@ -43,14 +44,14 @@ header h1 {
 .searchbox button {
     padding: 14px 24px;
     border: none;
-    background-color: #1e40af;
+    background-color: #ff6969;
     color: white;
     cursor: pointer;
     font-size: 16px;
 }
 
 .searchbox button:hover {
-    background-color: #1d4ed8;
+    background-color: #ffafaf;
 }
 
 .hint {
@@ -61,8 +62,8 @@ header h1 {
 
 main {
     width: 100%;
-    max-width: 1000px;
-    margin: 35px 0;
+    max-width: 585px;
+    margin: 35px auto;
     padding: 0 40px;
 }
 
@@ -71,19 +72,16 @@ main {
     display: flex;
     flex-direction: column;
     gap: 14px;
+    margin:auto;
 }
 
 .singleweather {
     width: 100%;
     background-color: white;
-    border-radius: 18px;
+    border-radius: 10px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-}
-
-.singleweather:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    margin:auto;
 }
 
 .weathersummary {
@@ -98,13 +96,13 @@ main {
 
 .cityname {
     font-weight: bold;
-    color: #1e40af;
+    color: #ff6969;
     font-size: 18px;
 }
 
 .citylocation {
     margin-top: 4px;
-    color: #64748b;
+    color: #5e5e5e;
     font-size: 13px;
 }
 
@@ -123,21 +121,15 @@ main {
     display: grid;
 }
 
-.weatheritem {
-    background: #f8fafc;
-    border-radius: 14px;
-    padding: 14px;
-}
-
 .weatherlabel {
     display: block;
     margin-bottom: 6px;
-    color: #64748b;
+    color: #000000;
     font-size: 13px;
 }
 
 .weathervalue {
-    color: #1e293b;
+    color: #000000;
     font-size: 18px;
     font-weight: bold;
 }
@@ -147,5 +139,5 @@ main {
     background-color: white;
     border-radius: 18px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    color: #475569;
+    color: #000000;
 }
